@@ -3,22 +3,18 @@ package racinggame.domain;
 import java.util.Objects;
 
 public class Car {
-    private int score;
+    private Score score;
     private CarName name;
 
     Car(String name) {
         this.name = new CarName(name);
-        score = 0;
+        score = new Score();
     }
 
     public void go(MovingStrategy moveState) {
         if (moveState.isMovable()) {
-            addScore();
+            score.addScore();
         }
-    }
-
-    private void addScore(){
-        this.score++;
     }
 
     public String getName() {
@@ -26,7 +22,7 @@ public class Car {
     }
 
     public int getScore() {
-        return score;
+        return score.getValue();
     }
 
     @Override

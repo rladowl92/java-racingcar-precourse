@@ -18,9 +18,13 @@
 
 ## 기능 목록
 * carName : 5자 이하
+* score 객체
+  - 점수 증가
+  - 같은 점수인지 확인
 * car
   - carName, score
   - 전진 기능 : strategy 패턴을 사용하여 전진 여부 결정
+  - 우승자 확인 : 최고점을 입력받아 같으면 우승자
 * movingStrategy 인터페이스 : isMovable()
 * randomStrategy
   - movingStrategy를 상속받음
