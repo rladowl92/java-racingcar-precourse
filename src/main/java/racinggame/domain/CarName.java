@@ -9,14 +9,14 @@ public class CarName {
 
     private String name;
 
-    CarName(String name){
+    CarName(String name) {
         if (name.length() > MAX_NAME_LENGTH) {
             throw new RacingCarException("자동차 이름은 5글자를 초과할 수 없습니다.");
         }
         this.name = name;
     }
 
-    String getName(){
+    String getName() {
         return name;
     }
 
