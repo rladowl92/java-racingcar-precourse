@@ -17,6 +17,17 @@ public class Car {
         }
     }
 
+    public Score maxScore(Score maxScore) {
+        if (maxScore.lessThan(maxScore)) {
+            return maxScore;
+        }
+        return score;
+    }
+
+    public boolean isWinner(Score winScore) {
+        return winScore.isSameScore(winScore);
+    }
+
     public String getName() {
         return name.getName();
     }
@@ -30,7 +41,7 @@ public class Car {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Car car = (Car) o;
-        return score == car.score &&
+        return Objects.equals(score, car.score) &&
                 Objects.equals(name, car.name);
     }
 

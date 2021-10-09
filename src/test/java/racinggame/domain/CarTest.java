@@ -27,4 +27,20 @@ class CarTest {
         car.go(() -> false);
         assertThat(car.getScore()).isEqualTo(0);
     }
+
+    @DisplayName("maxScore와 같으면 우승")
+    @Test
+    void isWinner() {
+        Car car = new Car("edge");
+        car.go(() -> true);
+        assertThat(car.isWinner(new Score(1))).isTrue();
+    }
+
+    @DisplayName("현재 스코어가 전달받은 스코어보다 더 크다면 현재 스코어를 maxScore로 반환한다.")
+    @Test
+    void maxScore() {
+        Car car = new Car("edge");
+        car.go(() -> true);
+        assertThat(car.maxScore(new Score(0))).isEqualTo(new Score(1));
+    }
 }

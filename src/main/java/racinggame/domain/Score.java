@@ -5,16 +5,24 @@ import java.util.Objects;
 public class Score {
     private int value;
 
-    public Score(){
-        value = 0;
+    public Score() {
+        this(0);
     }
 
-    public void addScore(){
+    public Score(int value) {
+        this.value = value;
+    }
+
+    public void addScore() {
         value++;
     }
 
-    public boolean isSameScore(int value){
-        return this.value == value;
+    public boolean isSameScore(Score score) {
+        return value == score.getValue();
+    }
+
+    public boolean lessThan(Score maxScore) {
+        return value < maxScore.getValue();
     }
 
     public int getValue() {
