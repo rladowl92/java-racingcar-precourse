@@ -32,8 +32,8 @@ public class Car {
         return name.getName();
     }
 
-    public int getScore() {
-        return score.getValue();
+    public Score getScore() {
+        return score;
     }
 
     @Override
