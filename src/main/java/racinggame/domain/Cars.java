@@ -10,6 +10,12 @@ public class Cars {
         names.forEach(name -> cars.add(new Car(name)));
     }
 
+    public Cars(List<String> names, List<Integer> scores) {
+        for (int i = 0; i < names.size(); i++) {
+            cars.add(new Car(names.get(i), scores.get(i)));
+        }
+    }
+
     public void attempt(MovingStrategy movingStrategy) {
         cars.forEach(car -> car.go(movingStrategy));
     }
@@ -35,5 +41,9 @@ public class Cars {
             maxScore = car.maxScore(maxScore);
         }
         return maxScore;
+    }
+
+    public List<Car> getCars() {
+        return cars;
     }
 }

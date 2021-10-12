@@ -4,6 +4,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -14,11 +16,10 @@ class CarsTest {
         assertThat(cars).isEqualTo(new Cars(Arrays.asList("pobi", "crong", "honux")));
     }
 
-    @DisplayName("우승자가 한명 이상 있어야한다.")
+    @DisplayName("honux가 우승해야한다.")
     @Test
     void getWinner() {
-        Cars cars = new Cars(Arrays.asList("pobi", "crong", "honux"));
-        cars.attempt(() -> true);
-        assertThat(cars.findWinners()).isNotEmpty();
+        Cars cars = new Cars(Arrays.asList("pobi", "crong", "honux"), Arrays.asList(1, 2, 3));
+        assertThat(cars.findWinners()).isEqualTo(Collections.singletonList(new Car("honux", 3)));
     }
 }

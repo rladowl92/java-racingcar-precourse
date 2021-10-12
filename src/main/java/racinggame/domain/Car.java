@@ -11,6 +11,11 @@ public class Car {
         score = new Score();
     }
 
+    Car(String name, int score) {
+        this.name = new CarName(name);
+        this.score = new Score(score);
+    }
+
     public void go(MovingStrategy moveState) {
         if (moveState.isMovable()) {
             score.addScore();
@@ -18,14 +23,14 @@ public class Car {
     }
 
     public Score maxScore(Score maxScore) {
-        if (maxScore.lessThan(maxScore)) {
+        if (score.lessThan(maxScore)) {
             return maxScore;
         }
         return score;
     }
 
     public boolean isWinner(Score winScore) {
-        return winScore.isSameScore(winScore);
+        return score.isSameScore(winScore);
     }
 
     public String getName() {
